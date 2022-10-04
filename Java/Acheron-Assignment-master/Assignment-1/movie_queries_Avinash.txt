@@ -1,0 +1,34 @@
+1. select mov_title,mov_year
+   from movie;
+2. select mov_year 
+   from movie 
+   where mov_title='American Beauty';
+3. select mov_title 
+   from movie 
+   where mov_year=1999;
+4. select mov_title 
+   from movie 
+   where mov_year<1998;
+5. select mov_title 
+   from movie UNION ALL 
+   select rev_name 
+   from reviewer;
+6. select r.rev_name,t.rev_stars
+   from reviewer r 
+   JOIN rating t 
+   ON r.rev_id=t.rev_id
+   where t.rev_stars>=7 AND r.rev_name is not null;
+7. select mov_title,rev_stars
+   from movie,rating
+   where movie.mov_id=rating.mov_id
+   AND rating.rev_stars IS NULL;
+8. select mov_title
+   from movie
+   where mov_id IN(905,907,917);
+9. select mov_title
+   from movie
+   where mov_title LIKE '%Boogie%Nights%'
+   order by mov_year asc;
+10. select act_id
+    from actor
+   where act_fname='Woody' AND act_lname='Allen';
